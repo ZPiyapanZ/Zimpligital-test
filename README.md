@@ -27,3 +27,6 @@ $ npm run test
 1. Import file Zimpligital Test.postman_collection.json to Postman
 2. The API can be tested at the collection Zimpligital Test after successfully running the app.
 ```
+
+## Note
+You can view the API documentation at https://app.swaggerhub.com/apis-docs/ZPiyapanZ/zimpligital-test/1.0.0
