@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "469d30a0-ec1b-4a18-8f98-24494bc17aab",
+		"name": "Zimpligital Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Stock By Symbol Or CompanyName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/stocks/:search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stocks",
+						":search"
+					],
+					"variable": [
+						{
+							"key": "search",
+							"value": "Apple Inc."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Cryptocurrency By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/cryptocurrencies/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cryptocurrencies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "bitcoin"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Zimpligital Test
+  description: api document for get price stocks and  get price cryptocurrencies.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: localhost
+
+tags:
+  - name: Stocks
+  - name: Cryptocurrencies
+
+
+paths:
+  /stocks/{search}:
+    get:
+      tags:
+        - "Stocks"
+      summary: Get current data (symbol, company name, price, currency) for a stock.
+      parameters:
+        - name: search
+          in: path
+          description: Enter a search query, such as AAPL, Apple Inc.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return current data for a stock.
+          content:
+             application/json:
+              schema:
+                type: object
+                properties:
+                  symbol:
+                    type: string
+                  shortname: 
+                    type: string
+                  longname: 
+                    type: string
+                  price:
+                    type: number
+                  currency:
+                    type: string
+        404:
+          description: Stock not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NOT_FOUND'
+
+  /cryptocurrencies/{id}:
+    get:
+      tags:
+        - "Cryptocurrencies"
+      summary: Get current data (id, symbol, price, currency) for a coin.
+      parameters:
+        - name: id
+          in: path
+          description: Enter the coin ID, such as bitcoin, ethereum, or binance.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return current data for a coin.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  symbol:
+                    type: string
+                  price:
+                    type: number
+                  currency:
+                    type: string
+        404:
+          description: Cryptocurrency not found. 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NOT_FOUND'
+
+
+
+components:
+  schemas:
+    NOT_FOUND:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          default: 404
+        message: 
+          type: string
+        error:
+          type: string
+          default: "Not Found"
